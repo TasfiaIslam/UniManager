@@ -33,6 +33,7 @@ namespace UniversityManagementSystem
             services.AddScoped<IStudentRepository,SQLStudentRepository>();
             services.AddScoped<IDepartmentRepository, SQLDepartmentRepository>();
             services.AddScoped<ICourseRepository, SQLCourseRepository>();
+            services.AddScoped<ITeacherRepository, SQLTeacherRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
