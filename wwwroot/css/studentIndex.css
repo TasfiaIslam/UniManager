@@ -1,0 +1,21 @@
+﻿table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: yellow;
+    color: black;
+}
+
+h1{
+    text-align:center;
+}
+
+#search{
+    width: 300px;
+}
+
+button {
+    width: 70px;
+}

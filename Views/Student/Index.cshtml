@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewBag.Title = "Student";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/studentIndex.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Students</h1>
+
+    <a asp-action="Create"><button class="btn btn-primary">Add</button></a>
+
+    <form asp-action="Index" method="post">
+        <div class="row input-group">
+            <label>Search Students</label>
+            <br />
+            <input type="text" name="search" id="search" class="form-control" />
+            <br />
+            <div class="input-group-btn">
+                <input type="submit" value="search" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Registration</th>
+                <th>Address</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+            <tr>
+                <td>@student.StudentId</td>
+                <td>@student.Name</td>
+                <td>@student.RegNumber</td>
+                <td>@student.Address</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@student.StudentId"><button class="btn btn-info">Edit</button></a>
+                    <a asp-action="Details" asp-route-id="@student.StudentId"><button class="btn btn-primary">Details</button></a>
+                    <a asp-action="Delete" asp-route-id="@student.StudentId"><button class="btn btn-danger">Delete</button></a>
+                </td>
+            </tr>
+
+
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+
