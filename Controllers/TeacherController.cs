@@ -15,10 +15,37 @@ namespace UniversityManagementSystem.Controllers
         {
             _teacherRepository = teacherRepository;
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
             var model = _teacherRepository.GetAllTeachers();
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Index(string search)
+        {
+            if (!String.IsNullOrEmpty(search))
+            {
+                var foundTeachers = _teacherRepository.SearchTeachers(search);
+                return View(foundTeachers);
+            }
+            var model = _teacherRepository.GetAllTeachers();
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Teacher teacher)
+        {
+            _teacherRepository.AddTeacher(teacher);
+            return View();
         }
     }
 }

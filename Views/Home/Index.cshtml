@@ -5,24 +5,44 @@
 <html>
 <head>
     <link href="~/css/homeIndex.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
+        <div class="row headSection" style="height: 100px">
+            <h1>This is heading</h1>
+        </div>
         <div class="row">
-            <div class="col-lg-4">
-                <button class="button">
-                     Student
-                </button>
+            <div class="col-lg-3 bg-primary" style="height: 400px">
+                <a asp-action="Index" asp-controller="Student">
+                    <button class="btn btn-primary bg-warning">
+                        Student
+                    </button>
+                </a>
             </div>
-            <div class="col-lg-4">
-                <button class="button">
-                    Teacher
-                </button>
+            <div class="col-lg-3 bg-dark" style="height: 400px">
+                <a asp-action="Index" asp-controller="Teacher">
+                    <button class="btn btn-primary bg-warning">
+                        Teacher
+                    </button>
+                </a>
             </div>
-            <div class="col-lg-4">
-                <button class="button">
-                    Department
-                </button>
+            <div class="col-lg-3 bg-primary" style="height: 400px">
+                <a asp-action="Index" asp-controller="Department">
+                    <button class="btn btn-primary bg-warning">
+                        Department
+                    </button>
+                </a>
+            </div>
+            <div class="col-lg-3 bg-dark" style="height: 400px">
+                <a asp-action="Index" asp-controller="Course">
+                    <button class="btn btn-primary bg-warning">
+                        Course
+                    </button>
+                </a>
             </div>
         </div>
     </div>
