@@ -1,49 +1,71 @@
-﻿@model Student
+﻿@model StudentCreateViewModel
 
 @{
-    ViewBag.Title = "Create Student";
+    ViewData["Title"] = "Create";
 }
-
-<!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#submitButton").hover(function () {
+                $(this).css("background-color", "yellow");
+            }, function () {
+                $(this).css("background-color", "pink");
+            });
+        });
+    </script>
 </head>
 <body>
+    <h1>Create</h1>
 
-<h4>Student</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegNumber" class="control-label"></label>
-                <input asp-for="RegNumber" class="form-control" />
-                <span asp-validation-for="RegNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>Student</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4" id="mainDiv">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Student.Name" class="control-label"></label>
+                    <input asp-for="Student.Name" class="form-control" />
+                    <span asp-validation-for="Student.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Student.RegNumber" class="control-label"></label>
+                    <input asp-for="Student.RegNumber" class="form-control" />
+                    <span asp-validation-for="Student.RegNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Student.Address" class="control-label"></label>
+                    <input asp-for="Student.Address" class="form-control" />
+                    <span asp-validation-for="Student.Address" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Departments" class="control-label"></label>
+                    @*<select id="my_multi_select1"
+                                asp-for="SelectedDepartment" asp-items="(List<SelectListItem>)ViewBag.DepartmentNames">
+                        </select>*@
+                    <select id="my_multi_select1"
+                            asp-for="SelectedDepartment" asp-items="@(new SelectList(Model.Departments,"DeptId","DeptName"))">
+                    </select>
+                    <span asp-validation-for="SelectedDepartment" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" id="submitButton" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 </body>
 </html>
+
+
+
+

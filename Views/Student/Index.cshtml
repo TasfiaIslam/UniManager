@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Student>
+
 @{
-    ViewBag.Title = "Student";
+    
 }
 
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Students</title>
     <link href="~/css/studentIndex.css" rel="stylesheet" />
 </head>
 <body>
@@ -20,7 +21,7 @@
         <div class="row input-group">
             <label>Search Students</label>
             <br />
-            <input type="text" name="search" id="search" class="form-control" style="width:50px"/>
+            <input type="text" name="search" id="search" class="form-control" style="width:50px" />
             <br />
             <div class="input-group-btn">
                 <input type="submit" value="search" class="btn btn-primary" />
@@ -32,8 +33,9 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Registration</th>
+                <th>Reg No</th>
                 <th>Address</th>
+                <th>Department</th>
                 <th>Update</th>
             </tr>
         </thead>
@@ -45,6 +47,7 @@
                 <td>@student.Name</td>
                 <td>@student.RegNumber</td>
                 <td>@student.Address</td>
+                <td>@student.Department.DeptName</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@student.StudentId"><button class="btn btn-info">Edit</button></a>
                     <a asp-action="Details" asp-route-id="@student.StudentId"><button class="btn btn-primary">Details</button></a>
@@ -56,4 +59,3 @@
     </table>
 </body>
 </html>
-
