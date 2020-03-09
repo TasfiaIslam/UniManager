@@ -36,6 +36,17 @@ namespace UniversityManagementSystem.Controllers
                 return View(foundStudents);
             }
             var model = _studentRepository.GetAllStudents();
+            
+            ViewBag.result = _studentRepository.GetAllStudents()
+                .Join(_departmentRepository.GetAllDepartments(),
+                s => s.DeptId,
+                d => d.DeptId,
+                (stdID,deptName) => new
+                {
+                    studentId = stdID.StudentId,
+                    departmentName =deptName.DeptName                   
+                });
+
             return View(model);
         }
 
@@ -45,27 +56,20 @@ namespace UniversityManagementSystem.Controllers
             StudentCreateViewModel model = new StudentCreateViewModel();
             var departments = _departmentRepository.GetAllDepartments().ToList();
             model.Departments = departments;
-            //ViewBag.DepartmentNames = _departmentRepository.GetAllDepartments().Select(r => new SelectListItem 
-            //{ Value = r.DeptId.ToString(), Text = r.DeptName }).ToList();
             return View(model);
-
         }
 
         [HttpPost]
         public IActionResult Create(StudentCreateViewModel model)
         {
             if (ModelState.IsValid)
-            {
-               
+            {     
                 Student student = new Student
                 {
                     Name = model.Student.Name,
                     RegNumber = model.Student.RegNumber,
                     Address = model.Student.Address,
-                    Department = new Department
-                    {
-                        DeptId = model.SelectedDepartment
-                    }
+                    DeptId = model.SelectedDepartment
                 };
                 _studentRepository.AddStudent(student);
                 return Redirect("/Student");

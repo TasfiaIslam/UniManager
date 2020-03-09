@@ -10,7 +10,6 @@ namespace UniversityManagementSystem.Models
     {
         [Key]
         public int DeptId { get; set; }
-        [Required]
         public string DeptName { get; set; }
         public ICollection<Teacher> Teachers { get; set; }
         public ICollection<Course> Courses { get; set; }

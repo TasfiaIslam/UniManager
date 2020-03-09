@@ -47,7 +47,7 @@
                 <td>@student.Name</td>
                 <td>@student.RegNumber</td>
                 <td>@student.Address</td>
-                <td>@student.Department.DeptName</td>
+                <td>@ViewBag.DepartmentName</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@student.StudentId"><button class="btn btn-info">Edit</button></a>
                     <a asp-action="Details" asp-route-id="@student.StudentId"><button class="btn btn-primary">Details</button></a>
