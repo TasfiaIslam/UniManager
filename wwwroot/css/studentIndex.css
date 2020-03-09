@@ -12,10 +12,13 @@ h1{
     text-align:center;
 }
 
-#search{
-    width: 300px;
-}
 
 button {
     width: 70px;
+}
+
+#totalStudents{
+    width: 100px;
+    height: 20px;
+    background-color: cornflowerblue;
 }

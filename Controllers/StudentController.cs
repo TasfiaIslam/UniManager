@@ -24,6 +24,8 @@ namespace UniversityManagementSystem.Controllers
         public IActionResult Index()
         {
             var model = _studentRepository.GetAllStudents();
+            var count = _studentRepository.GetAllStudents().Count();
+            ViewBag.Total = count;
             return View(model);
         }
 
@@ -33,6 +35,8 @@ namespace UniversityManagementSystem.Controllers
             if (!String.IsNullOrEmpty(search))
             {
                var foundStudents = _studentRepository.SearchStudents(search);
+                var countFoundStudents = foundStudents.Count();
+                ViewBag.Total = countFoundStudents;
                 return View(foundStudents);
             }
             var model = _studentRepository.GetAllStudents();
@@ -46,6 +50,9 @@ namespace UniversityManagementSystem.Controllers
                     studentId = stdID.StudentId,
                     departmentName =deptName.DeptName                   
                 });
+
+            var count = _studentRepository.GetAllStudents().Count();
+            ViewBag.Total = count;
 
             return View(model);
         }
