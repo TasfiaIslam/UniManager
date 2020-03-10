@@ -76,7 +76,7 @@ namespace UniversityManagementSystem.Controllers
                     Name = model.Student.Name,
                     RegNumber = model.Student.RegNumber,
                     Address = model.Student.Address,
-                    DeptId = model.SelectedDepartment
+                    DeptId = model.Dept.DeptId,
                 };
                 _studentRepository.AddStudent(student);
                 return Redirect("/Student");

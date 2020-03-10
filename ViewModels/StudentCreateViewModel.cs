@@ -11,5 +11,7 @@ namespace UniversityManagementSystem.ViewModels
         public Student Student { get; set; }
         public IEnumerable<Department> Departments { get; set; }
         public int SelectedDepartment { get; }
+        public Department Dept { get; set; }
+
     }
 }
