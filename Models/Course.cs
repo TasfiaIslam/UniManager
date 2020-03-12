@@ -14,6 +14,7 @@ namespace UniversityManagementSystem.Models
         public string Name { get; set; }
         [Required]
         public double Credit { get; set; }
+        public int DeptId { get; set; }
         public Department Department { get; set; }
     }
 }

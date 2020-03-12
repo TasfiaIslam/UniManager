@@ -51,8 +51,10 @@ namespace UniversityManagementSystem.Controllers
         public IActionResult Create()
         {
             TeacherCreateViewModel model = new TeacherCreateViewModel();
+
             var departments = _departmentRepository.GetAllDepartments().ToList();
             model.Departments = departments;
+
             return View(model);
         }
 
