@@ -34,7 +34,7 @@ namespace UniversityManagementSystem.Controllers
         {
             if (!String.IsNullOrEmpty(search))
             {
-               var foundStudents = _studentRepository.SearchStudents(search);
+                var foundStudents = _studentRepository.SearchStudents(search);
                 var countFoundStudents = foundStudents.Count();
                 ViewBag.Total = countFoundStudents;
                 return View(foundStudents);

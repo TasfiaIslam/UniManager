@@ -16,7 +16,6 @@ namespace UniversityManagementSystem.Models
         public string RegNumber { get; set; }
         [Required]
         public string Address { get; set; }
-
         public int DeptId { get; set; }
         public Department Department { get; set; }
 

@@ -6,11 +6,10 @@ using UniversityManagementSystem.Models;
 
 namespace UniversityManagementSystem.ViewModels
 {
-    public class StudentCreateViewModel
+    public class TeacherCreateViewModel
     {
-        public Student Student { get; set; }
+        public Teacher Teacher { get; set; }
         public IEnumerable<Department> Departments { get; set; }
         public Department Dept { get; set; }
-
     }
 }
