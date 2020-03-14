@@ -1,0 +1,27 @@
+﻿@model StudentCourseViewModel
+
+@{
+    ViewData["Title"] = "ViewCourse";
+}
+
+<h1>ViewCourse</h1>
+
+<html>
+<head>
+
+</head>
+<body>
+    <ul>
+        @foreach (var data in Model.StudentCourses)
+        {
+            <li>@data.Student.Name</li>
+        }
+    </ul>
+
+    @if(Model.StudentCourses.Count() == 0)
+    {
+        <p><i>No Course taken</i></p>
+    }
+</body>
+</html>
+

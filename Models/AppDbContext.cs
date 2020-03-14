@@ -13,9 +13,16 @@ namespace UniversityManagementSystem.Models
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<StudentCourse>()
+                .HasKey(c => new { c.StudentId, c.CourseId});
+        }
+
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
     }
 }

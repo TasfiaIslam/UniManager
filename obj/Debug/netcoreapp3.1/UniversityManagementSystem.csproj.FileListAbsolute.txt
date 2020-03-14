@@ -145,3 +145,4 @@ C:\Tasfia\Github Projects\University Management System\UniversityManagementSyste
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\Create.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Student\Create.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Student\Index.cshtml.g.cs
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Student\ViewCourse.cshtml.g.cs

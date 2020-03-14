@@ -14,7 +14,12 @@ namespace UniversityManagementSystem.Models
         public string Name { get; set; }
         [Required]
         public double Credit { get; set; }
+
+        //one-to-many relationship
         public int DeptId { get; set; }
         public Department Department { get; set; }
+
+        //many-to-many relationship
+        public ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }

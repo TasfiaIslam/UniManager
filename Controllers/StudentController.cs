@@ -13,11 +13,14 @@ namespace UniversityManagementSystem.Controllers
     {
         private readonly IStudentRepository _studentRepository;
         private readonly IDepartmentRepository _departmentRepository;
+        private readonly IStudentCourseRepository _stdCourseRepository;
 
-        public StudentController(IStudentRepository studentRepository, IDepartmentRepository departmentRepository)
+        public StudentController(IStudentRepository studentRepository, IDepartmentRepository departmentRepository,
+                                     IStudentCourseRepository stdCourseRepository)
         {
             _studentRepository = studentRepository;
             _departmentRepository = departmentRepository;
+            _stdCourseRepository = stdCourseRepository;
         }
 
         [HttpGet]
@@ -41,16 +44,6 @@ namespace UniversityManagementSystem.Controllers
             }
             var model = _studentRepository.GetAllStudents();
             
-            ViewBag.result = _studentRepository.GetAllStudents()
-                .Join(_departmentRepository.GetAllDepartments(),
-                s => s.DeptId,
-                d => d.DeptId,
-                (stdID,deptName) => new
-                {
-                    studentId = stdID.StudentId,
-                    departmentName =deptName.DeptName                   
-                });
-
             var count = _studentRepository.GetAllStudents().Count();
             ViewBag.Total = count;
 
@@ -83,6 +76,20 @@ namespace UniversityManagementSystem.Controllers
             }
 
             return View(model);
+        }
+
+        public IActionResult ViewCourse(int Id)
+        {
+            var courses = _stdCourseRepository.GetStudentCourses(Id);
+            var student = _studentRepository.GetStudent(Id);
+
+            StudentCourseViewModel viewModel = new StudentCourseViewModel
+            {
+                Student = student,
+                StudentCourses = courses
+            };
+
+            return View(viewModel);
         }
 
     }

@@ -16,8 +16,13 @@ namespace UniversityManagementSystem.Models
         public string RegNumber { get; set; }
         [Required]
         public string Address { get; set; }
+
+        //one-to-many relationship
         public int DeptId { get; set; }
         public Department Department { get; set; }
+
+        //many-to-many relationship
+        public ICollection<StudentCourse> StudentCourses { get; set; }
 
     }
 }

@@ -11,6 +11,9 @@ namespace UniversityManagementSystem.Models
         [Key]
         public int DeptId { get; set; }
         public string DeptName { get; set; }
+
+
+        //one-to-many relationship
         public ICollection<Teacher> Teachers { get; set; }
         public ICollection<Course> Courses { get; set; }
         public ICollection<Student> Students { get; set; }
