@@ -17,6 +17,8 @@ namespace UniversityManagementSystem.Models
         {
             modelBuilder.Entity<StudentCourse>()
                 .HasKey(c => new { c.StudentId, c.CourseId});
+            modelBuilder.Entity<TeacherCourse>()
+                .HasKey(c => new { c.TeacherId, c.CourseId });
         }
 
         public DbSet<Student> Students { get; set; }
@@ -24,5 +26,6 @@ namespace UniversityManagementSystem.Models
         public DbSet<Department> Departments { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<TeacherCourse> TeacherCourses { get; set; }
     }
 }

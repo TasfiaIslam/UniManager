@@ -22,7 +22,7 @@
 
     @if(Model.StudentCourses.Count() == 0)
     {
-        <p><i>No Course taken</i></p>
+        <p><i>No course taken</i></p>
     }
 
     <p><a asp-controller="Student" asp-action="AddCourse" asp-route-id="@Model.Student.StudentId">Add Course</a></p>

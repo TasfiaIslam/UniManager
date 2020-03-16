@@ -12,11 +12,16 @@ namespace UniversityManagementSystem.Controllers
     {
         private readonly ITeacherRepository _teacherRepository;
         private readonly IDepartmentRepository _departmentRepository;
+        private readonly ITeacherCourseRepository _teacherCourseRepository;
+        private readonly ICourseRepository _courseRepository;
 
-        public TeacherController(ITeacherRepository teacherRepository, IDepartmentRepository departmentRepository)
+        public TeacherController(ITeacherRepository teacherRepository, IDepartmentRepository departmentRepository,
+                                   ITeacherCourseRepository teacherCourseRepository, ICourseRepository courseRepository)
         {
             _teacherRepository = teacherRepository;
             _departmentRepository = departmentRepository;
+            _teacherCourseRepository = teacherCourseRepository;
+            _courseRepository = courseRepository;
         }
 
         [HttpGet]
@@ -74,6 +79,20 @@ namespace UniversityManagementSystem.Controllers
             } 
             
             return View(model);
+        }
+
+        public IActionResult ViewCourse(int Id)
+        {
+            var courses = _teacherCourseRepository.GetTeacherCourses(Id);
+            var teacher = _teacherRepository.GetTeacher(Id);
+
+            TeacherCourseViewModel viewModel = new TeacherCourseViewModel
+            {
+                Teacher = teacher,
+                TeacherCourses = courses
+            };
+
+            return View(viewModel);
         }
     }
 }

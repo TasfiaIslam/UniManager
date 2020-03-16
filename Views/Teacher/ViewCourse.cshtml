@@ -1,0 +1,29 @@
+﻿@model TeacherCourseViewModel
+
+@{
+    ViewData["Title"] = "ViewCourse";
+}
+
+<h1>ViewCourse</h1>
+
+<html>
+<head>
+
+</head>
+<body>
+    <p>Courses taken by @Model.Teacher.Name</p>
+    <ul>
+        @foreach (var data in Model.TeacherCourses)
+        {
+            <li>@data.Course.Name</li>
+        }
+    </ul>
+
+    @if (Model.TeacherCourses.Count() == 0)
+    {
+        <p><i>No course taken</i></p>
+    }
+
+    <p><a asp-controller="Teacher" asp-action="AddCourse" asp-route-id="@Model.Teacher.TeacherId">Add Course</a></p>
+</body>
+</html>
