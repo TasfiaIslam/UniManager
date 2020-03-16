@@ -14,13 +14,15 @@ namespace UniversityManagementSystem.Controllers
         private readonly IStudentRepository _studentRepository;
         private readonly IDepartmentRepository _departmentRepository;
         private readonly IStudentCourseRepository _stdCourseRepository;
+        private readonly ICourseRepository _courseRepository;
 
         public StudentController(IStudentRepository studentRepository, IDepartmentRepository departmentRepository,
-                                     IStudentCourseRepository stdCourseRepository)
+                                     IStudentCourseRepository stdCourseRepository, ICourseRepository courseRepository)
         {
             _studentRepository = studentRepository;
             _departmentRepository = departmentRepository;
             _stdCourseRepository = stdCourseRepository;
+            _courseRepository = courseRepository;
         }
 
         [HttpGet]
@@ -88,6 +90,34 @@ namespace UniversityManagementSystem.Controllers
                 Student = student,
                 StudentCourses = courses
             };
+
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult AddCourse(int Id)
+        {
+            var student = _studentRepository.GetStudent(Id);
+            IEnumerable<Course> courses = _courseRepository.GetAllCourses();
+
+            return View(new AddStudentCourseViewModel(student, courses));
+        }
+
+        [HttpPost]
+        public IActionResult AddCourse(AddStudentCourseViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var studentId = viewModel.StudentId;
+                var courseId = viewModel.CourseId;
+
+                IEnumerable<StudentCourse> existingCourses = _stdCourseRepository.ExistingCourses(studentId, courseId);
+
+                if(existingCourses.Count() == 0)
+                {
+                    _stdCourseRepository.AddCourse(studentId , courseId);
+                }
+            }
 
             return View(viewModel);
         }

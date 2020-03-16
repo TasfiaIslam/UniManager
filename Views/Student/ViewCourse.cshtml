@@ -11,10 +11,12 @@
 
 </head>
 <body>
+    <p>Courses taken by @Model.Student.Name</p>
     <ul>
         @foreach (var data in Model.StudentCourses)
         {
-            <li>@data.Student.Name</li>
+
+            <li>@data.Course.Name</li>
         }
     </ul>
 
@@ -22,6 +24,8 @@
     {
         <p><i>No Course taken</i></p>
     }
+
+    <p><a asp-controller="Student" asp-action="AddCourse" asp-route-id="@Model.Student.StudentId">Add Course</a></p>
 </body>
 </html>
 

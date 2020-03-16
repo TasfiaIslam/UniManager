@@ -1,0 +1,18 @@
+﻿@model AddStudentCourseViewModel
+
+@{
+   
+}
+
+<h1>AddCourse</h1>
+<form asp-controller="Student" asp-action="AddCourse" method="post">
+    <div class="form-group">
+        <label asp-for="CourseId"></label>
+        <select asp-for="CourseId" asp-items="Model.Courses"></select>
+        <span asp-validation-for="CourseId"></span>
+    </div>
+
+    <input type="text" name="StudentId" value="@Model.StudentId" asp-for="StudentId"/>
+    <input type="submit" value="Add Course"/>
+</form>
+

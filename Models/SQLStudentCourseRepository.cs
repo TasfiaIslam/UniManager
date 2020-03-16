@@ -19,5 +19,23 @@ namespace UniversityManagementSystem.Models
             return _context.StudentCourses.Include(item => item.Course)
                                           .Where(x => x.StudentId == Id).ToList();
         }
+
+        public IEnumerable<StudentCourse> ExistingCourses(int studentId, int courseId)
+        {
+            return _context.StudentCourses.Where(x => x.StudentId == studentId)
+                                          .Where(x => x.CourseId == courseId).ToList();
+        }
+
+        public void AddCourse(int studentId, int courseId)
+        {
+            StudentCourse courseItem = new StudentCourse
+            {
+                Course = _context.Courses.FirstOrDefault(c => c.CourseId == courseId),
+                Student = _context.Students.FirstOrDefault(s => s.StudentId == studentId)
+            };
+
+            _context.StudentCourses.Add(courseItem);
+            _context.SaveChanges();
+        }
     }
 }

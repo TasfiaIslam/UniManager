@@ -10,5 +10,6 @@ namespace UniversityManagementSystem.ViewModels
     {
         public Student Student { get; set; }
         public IEnumerable<StudentCourse> StudentCourses { get; set; }
+
     }
 }
