@@ -94,5 +94,33 @@ namespace UniversityManagementSystem.Controllers
 
             return View(viewModel);
         }
+
+        [HttpGet]
+        public IActionResult AddCourse(int Id)
+        {
+            var teacher = _teacherRepository.GetTeacher(Id);
+            IEnumerable<Course> courses = _courseRepository.GetAllCourses();
+
+            return View(new AddTeacherCourseViewModel(teacher, courses));
+        }
+
+        [HttpPost]
+        public IActionResult AddCourse(AddTeacherCourseViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var teacherId = viewModel.TeacherId;
+                var courseId = viewModel.CourseId;
+
+                IEnumerable<TeacherCourse> existingCourses = _teacherCourseRepository.ExistingCourses(teacherId, courseId);
+
+                if (existingCourses.Count() == 0)
+                {
+                    _teacherCourseRepository.AddCourse(teacherId, courseId);
+                }
+            }
+
+            return View(viewModel);
+        }
     }
 }
