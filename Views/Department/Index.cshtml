@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Department>
 
 @{
-    ViewBag.Title = "Departments";
+    
 }
 
 <!DOCTYPE html>
@@ -14,42 +14,45 @@
 </head>
 <body>
     <h1>Departments</h1>
-
-    <a asp-action="Create"><button class="btn btn-primary">Add</button></a>
-
-    <form asp-action="Index" method="post">
-        <div class="row input-group">
-            <label>Search Departments</label>
-            <br />
-            <input type="text" name="search" id="search" class="form-control" style="width:50px" />
-            <br />
-            <div class="input-group-btn">
-                <input type="submit" value="search" class="btn btn-primary" />
-            </div>
+    <div class="row">
+        <div class="col-8">
+            <a asp-action="Create"><button class="btn btn-primary" style="width:auto">Add Departments</button></a>
+            <p id="totalDepartments" class="mt-3">Total Departments: @ViewBag.Total</p>
+            <form asp-action="Index" method="post">
+                <label>Search Department</label>
+                <div class="row input-group">
+                    <input type="text" name="search" id="searchInput" class="form-control col-xs-2 col-sm-4 col-lg-4 col-md-4" />
+                </div>
+                <div class="input-group-btn mt-3">
+                    <input type="submit" value="search" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
-    </form>
-    <table class="table mt-3">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Update</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var department in Model)
-            {
+    </div>
+    <div class="row">
+        <table class="table mt-3">
+            <thead>
                 <tr>
-                    <td>@department.DeptId</td>
-                    <td>@department.DeptName</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@department.DeptId"><button class="btn btn-info">Edit</button></a>
-                        <a asp-action="Details" asp-route-id="@department.DeptId"><button class="btn btn-primary">Details</button></a>
-                        <a asp-action="Delete" asp-route-id="@department.DeptId"><button class="btn btn-danger">Delete</button></a>
-                    </td>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Update</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var department in Model)
+                {
+                    <tr>
+                        <td>@department.DeptId</td>
+                        <td>@department.DeptName</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@department.DeptId"><button class="btn btn-info">Edit</button></a>
+                            <a asp-action="Details" asp-route-id="@department.DeptId"><button class="btn btn-primary">Details</button></a>
+                            <a asp-action="Delete" asp-route-id="@department.DeptId"><button class="btn btn-danger">Delete</button></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

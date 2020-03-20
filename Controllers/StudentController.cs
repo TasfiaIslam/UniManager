@@ -15,14 +15,17 @@ namespace UniversityManagementSystem.Controllers
         private readonly IDepartmentRepository _departmentRepository;
         private readonly IStudentCourseRepository _stdCourseRepository;
         private readonly ICourseRepository _courseRepository;
+        private readonly ITeacherCourseRepository _teacherCourseRepository;
 
         public StudentController(IStudentRepository studentRepository, IDepartmentRepository departmentRepository,
-                                     IStudentCourseRepository stdCourseRepository, ICourseRepository courseRepository)
+                                     IStudentCourseRepository stdCourseRepository, ICourseRepository courseRepository,
+                                     ITeacherCourseRepository teacherCourseRepository)
         {
             _studentRepository = studentRepository;
             _departmentRepository = departmentRepository;
             _stdCourseRepository = stdCourseRepository;
             _courseRepository = courseRepository;
+            _teacherCourseRepository = teacherCourseRepository;
         }
 
         [HttpGet]
@@ -44,6 +47,9 @@ namespace UniversityManagementSystem.Controllers
                 ViewBag.Total = countFoundStudents;
                 return View(foundStudents);
             }
+
+            var result = _studentRepository.GetAllStudents().OrderBy(s => s.Name);
+
             var model = _studentRepository.GetAllStudents();
             
             var count = _studentRepository.GetAllStudents().Count();
@@ -120,6 +126,13 @@ namespace UniversityManagementSystem.Controllers
             }
 
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult OrderStudentsByName()
+        {
+            var result = _studentRepository.GetAllStudents().OrderBy(s => s.Name);
+            return View(result);
         }
 
     }

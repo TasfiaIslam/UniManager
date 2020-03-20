@@ -1,5 +1,4 @@
-﻿
-table, th, td {
+﻿table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
@@ -12,6 +11,7 @@ th {
 h1 {
     text-align: center;
 }
+
 
 button {
     width: 70px;

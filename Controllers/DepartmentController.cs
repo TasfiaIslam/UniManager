@@ -20,6 +20,8 @@ namespace UniversityManagementSystem.Controllers
         public IActionResult Index()
         {
             var model = _departmentRepository.GetAllDepartments();
+            var count = _departmentRepository.GetAllDepartments().Count();
+            ViewBag.Total = count;
             return View(model);
         }
 
@@ -29,9 +31,15 @@ namespace UniversityManagementSystem.Controllers
             if (!String.IsNullOrEmpty(search))
             {
                 var foundDepartments = _departmentRepository.SearchDepartments(search);
+                var countFoundDepartments = foundDepartments.Count();
+                ViewBag.Total = countFoundDepartments;
                 return View(foundDepartments);
             }
             var model = _departmentRepository.GetAllDepartments();
+
+            var count = _departmentRepository.GetAllDepartments().Count();
+            ViewBag.Total = count;
+
             return View(model);
         }
 

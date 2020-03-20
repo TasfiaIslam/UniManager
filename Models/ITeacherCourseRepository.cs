@@ -10,5 +10,6 @@ namespace UniversityManagementSystem.Models
         IEnumerable<TeacherCourse> GetTeacherCourses(int Id);
         IEnumerable<TeacherCourse> ExistingCourses(int teacherId, int courseId);
         void AddCourse(int teacherId, int courseId);
+        IEnumerable<TeacherCourse> AllData();
     }
 }

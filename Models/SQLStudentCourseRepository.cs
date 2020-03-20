@@ -14,6 +14,12 @@ namespace UniversityManagementSystem.Models
         {
             _context = context;
         }
+
+        public IEnumerable<StudentCourse> AllData()
+        {
+            return _context.StudentCourses;
+        }
+
         public IEnumerable<StudentCourse> GetStudentCourses(int Id)
         {
             return _context.StudentCourses.Include(item => item.Course)
@@ -37,5 +43,6 @@ namespace UniversityManagementSystem.Models
             _context.StudentCourses.Add(courseItem);
             _context.SaveChanges();
         }
+
     }
 }

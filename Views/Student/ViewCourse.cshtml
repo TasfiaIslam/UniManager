@@ -11,16 +11,31 @@
 
 </head>
 <body>
-    <p>Courses taken by @Model.Student.Name</p>
-    <ul>
-        @foreach (var data in Model.StudentCourses)
-        {
+    <p>@Model.Student.Name is enrolled in the following courses</p>
 
-            <li>@data.Course.Name</li>
-        }
-    </ul>
+    <div class="row">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Course Id</th>
+                    <th>Course Name</th>
+                    <th>Credit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model.StudentCourses)
+                {
+                    <tr>
+                        <td>@data.Course.CourseId</td>
+                        <td>@data.Course.Name</td>
+                        <td>@data.Course.Credit</td> 
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
-    @if(Model.StudentCourses.Count() == 0)
+    @if (Model.StudentCourses.Count() == 0)
     {
         <p><i>No course taken</i></p>
     }
