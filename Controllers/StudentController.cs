@@ -135,5 +135,12 @@ namespace UniversityManagementSystem.Controllers
             return View(result);
         }
 
+        [HttpPost]
+        public IActionResult GroupByDepartment()
+        {
+            var studentGroups = _studentRepository.GetAllStudents().GroupBy(s => s.DeptId);
+            return View(studentGroups);
+        }
+
     }
 }
