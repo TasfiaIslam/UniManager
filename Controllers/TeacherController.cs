@@ -126,8 +126,15 @@ namespace UniversityManagementSystem.Controllers
         [HttpPost]
         public IActionResult OrderTeachersByName()
         {
-            var result = _teacherRepository.GetAllTeachers().OrderBy(s => s.Name);
+            var result = _teacherRepository.GetAllTeachers().OrderBy(t => t.Name);
             return View(result);
+        }
+
+        [HttpPost]
+        public IActionResult GroupByDepartment()
+        {
+            var teacherGroups = _teacherRepository.GetAllTeachers().GroupBy(t => t.DeptId);
+            return View(teacherGroups);
         }
     }
 }

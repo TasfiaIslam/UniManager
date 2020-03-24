@@ -1,0 +1,44 @@
+﻿@model IEnumerable<IGrouping<int, Teacher>>
+
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Teachers</title>
+    <link href="~/css/teacherIndex.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Students By Department</h1>
+    <div class="row">
+        @foreach (var group in Model)
+        {
+            <p>Department - @group.Key</p> <br />
+            <p>Total teachers in this department - @group.Count()</p>
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var teacher in group)
+                    {
+                        <tr>
+                            <td>@teacher.TeacherId</td>
+                            <td>@teacher.Name</td>
+                            <td>@teacher.Address</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</body>
+</html>
