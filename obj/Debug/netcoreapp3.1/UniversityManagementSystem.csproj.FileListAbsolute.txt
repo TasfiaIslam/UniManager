@@ -151,3 +151,4 @@ C:\Tasfia\Github Projects\University Management System\UniversityManagementSyste
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\AddCourse.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Student\OrderStudentsByName.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Student\GroupByDepartment.cshtml.g.cs
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\OrderTeachersByName.cshtml.g.cs

@@ -32,8 +32,11 @@ namespace UniversityManagementSystem.Controllers
         public IActionResult Index()
         {
             var model = _studentRepository.GetAllStudents();
+
             var count = _studentRepository.GetAllStudents().Count();
             ViewBag.Total = count;
+
+            
             return View(model);
         }
 

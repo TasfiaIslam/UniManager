@@ -17,7 +17,8 @@
     <div class="row">
         @foreach (var group in Model)
         {
-            <p>Department - @group.Key</p>
+            <p>Department - @group.Key</p> <br/>
+            <p>Total students in this department - @group.Count()</p>
             <table class="table mt-3">
                 <thead>
                     <tr>

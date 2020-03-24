@@ -122,5 +122,12 @@ namespace UniversityManagementSystem.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public IActionResult OrderTeachersByName()
+        {
+            var result = _teacherRepository.GetAllTeachers().OrderBy(s => s.Name);
+            return View(result);
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Teacher>
 
 @{
-    
+
 }
 
 <!DOCTYPE html>
@@ -47,17 +47,17 @@
             <tbody>
                 @foreach (var teacher in Model)
                 {
-                <tr>
-                    <td>@teacher.TeacherId</td>
-                    <td>@teacher.Name</td>
-                    <td>@teacher.Address</td>
-                    <td>@teacher.DeptId</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@teacher.TeacherId"><button class="btn btn-info">Edit</button></a>
-                        <a asp-action="Details" asp-route-id="@teacher.TeacherId"><button class="btn btn-primary">Details</button></a>
-                        <a asp-action="Delete" asp-route-id="@teacher.TeacherId"><button class="btn btn-danger">Delete</button></a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>@teacher.TeacherId</td>
+                        <td>@teacher.Name</td>
+                        <td>@teacher.Address</td>
+                        <td>@teacher.DeptId</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@teacher.TeacherId"><button class="btn btn-info">Edit</button></a>
+                            <a asp-action="Details" asp-route-id="@teacher.TeacherId"><button class="btn btn-primary">Details</button></a>
+                            <a asp-action="Delete" asp-route-id="@teacher.TeacherId"><button class="btn btn-danger">Delete</button></a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
