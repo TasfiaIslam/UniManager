@@ -136,5 +136,22 @@ namespace UniversityManagementSystem.Controllers
             var teacherGroups = _teacherRepository.GetAllTeachers().GroupBy(t => t.DeptId);
             return View(teacherGroups);
         }
+
+        public IActionResult Details(int id)
+        {
+            Teacher teacher = _teacherRepository.GetTeacher(id);
+            //Error Handling if Employee ID not found
+            if (teacher == null)
+            {
+                Response.StatusCode = 404;
+                return View("TeacherNotFound", id);
+            }
+            TeacherDetailsViewModel teacherDetailsViewModel = new TeacherDetailsViewModel()
+            {
+                Teacher = teacher,
+                PageTitle = "Teacher Details"
+            };
+            return View(teacherDetailsViewModel);
+        }
     }
 }
