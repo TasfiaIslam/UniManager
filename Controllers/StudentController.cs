@@ -145,5 +145,22 @@ namespace UniversityManagementSystem.Controllers
             return View(studentGroups);
         }
 
+        public IActionResult Details(int id)
+        {
+            Student student = _studentRepository.GetStudent(id);
+            //Error Handling if Employee ID not found
+            if (student == null)
+            {
+                Response.StatusCode = 404;
+                return View("StudentNotFound", id);
+            }
+            StudentDetailsViewModel studentDetailsViewModel = new StudentDetailsViewModel()
+            {
+                Student = student,
+                PageTitle = "Student Details"
+            };
+            return View(studentDetailsViewModel);
+        }
+
     }
 }

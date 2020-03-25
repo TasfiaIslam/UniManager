@@ -1,0 +1,31 @@
+﻿@model StudentDetailsViewModel
+
+@{
+    ViewBag.Title = "Student Details";
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Student.Name</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <h4>Student ID : @Model.Student.StudentId</h4>
+                <h4>Registration Number : @Model.Student.RegNumber</h4>
+                <h4>Address : @Model.Student.Address</h4>
+                <h4>Department : @Model.Student.DeptId</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-controller="Student" asp-action="Index" class="btn btn-primary">Back</a>
+                <a asp-controller="Student" asp-action="Edit" asp-route-id="@Model.Student.StudentId" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/CustomScript.js"></script>
+}
