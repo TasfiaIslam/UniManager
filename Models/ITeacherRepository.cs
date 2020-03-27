@@ -11,5 +11,6 @@ namespace UniversityManagementSystem.Models
         IEnumerable<Teacher> GetAllTeachers();
         IEnumerable<Teacher> SearchTeachers(string search);
         Teacher AddTeacher(Teacher teacher);
+        Teacher DeleteTeacher(int id);
     }
 }

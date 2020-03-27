@@ -153,5 +153,12 @@ namespace UniversityManagementSystem.Controllers
             };
             return View(teacherDetailsViewModel);
         }
+
+        public IActionResult Delete(int id)
+        {
+            var model = _teacherRepository.DeleteTeacher(id);
+            ViewBag.Message = "Teacher Id " + model.TeacherId + " is deleted.";
+            return View(model);
+        }
     }
 }

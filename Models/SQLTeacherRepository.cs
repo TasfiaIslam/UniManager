@@ -35,5 +35,16 @@ namespace UniversityManagementSystem.Models
             return _context.Teachers.Where(x => x.Name.Contains(search) ||
                                          x.Address.Contains(search));
         }
+
+        public Teacher DeleteTeacher(int id)
+        {
+            Teacher teacher = _context.Teachers.Find(id);
+            if (teacher != null)
+            {
+                _context.Teachers.Remove(teacher);
+                _context.SaveChanges();
+            }
+            return teacher;
+        }
     }
 }
