@@ -11,5 +11,6 @@ namespace UniversityManagementSystem.Models
         IEnumerable<Student> GetAllStudents();
         IEnumerable<Student> SearchStudents(string search);
         Student AddStudent(Student student);
+        Student DeleteStudent(int id);
     }
 }

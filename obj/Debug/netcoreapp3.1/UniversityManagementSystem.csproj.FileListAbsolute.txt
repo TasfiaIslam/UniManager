@@ -157,3 +157,4 @@ C:\Tasfia\Github Projects\University Management System\UniversityManagementSyste
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Student\Details.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\TeacherNotFound.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\Details.cshtml.g.cs
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Student\Delete.cshtml.g.cs

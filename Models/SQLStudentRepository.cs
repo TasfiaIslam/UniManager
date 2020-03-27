@@ -44,5 +44,16 @@ namespace UniversityManagementSystem.Models
                                             x.Address.Contains(search) ||
                                             x.StudentId == id).ToList();
         }
+
+        public Student DeleteStudent(int id)
+        {
+            Student student = _context.Students.Find(id);
+            if (student != null)
+            {
+                _context.Students.Remove(student);
+                _context.SaveChanges();
+            }
+            return student;
+        }
     }
 }

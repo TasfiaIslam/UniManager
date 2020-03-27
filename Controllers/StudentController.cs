@@ -162,5 +162,12 @@ namespace UniversityManagementSystem.Controllers
             return View(studentDetailsViewModel);
         }
 
+        public IActionResult Delete(int id)
+        {
+            var model = _studentRepository.DeleteStudent(id);
+            ViewBag.Message ="Student Id "+ model.StudentId + " is deleted.";
+            return View(model);
+        }
+
     }
 }
