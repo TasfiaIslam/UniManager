@@ -74,6 +74,13 @@ namespace UniversityManagementSystem.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public IActionResult GroupByDepartment()
+        {
+            var courseGroups = _courseRepository.GetAllCourses().GroupBy(t => t.DeptId);
+            return View(courseGroups);
+        }
+
 
     }
 }

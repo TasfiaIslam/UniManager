@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IGrouping<int, Teacher>>
+﻿@model IEnumerable<IGrouping<int, Course>>
 
 @{
 
@@ -9,31 +9,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Teachers</title>
-    <link href="~/css/teacherIndex.css" rel="stylesheet" />
+    <title>Courses</title>
+    <link href="~/css/courseIndex.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Teachers By Department</h1>
+    <h1>Courses By Department</h1>
     <div class="row">
         @foreach (var group in Model)
         {
             <p>Department - @group.Key</p> <br />
-            <p>Total teachers in this department - @group.Count()</p>
+            <p>Total courses in this department - @group.Count()</p>
             <table class="table mt-3">
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Address</th>
+                        <th>Credit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var teacher in group)
+                    @foreach (var courses in group)
                     {
                         <tr>
-                            <td>@teacher.TeacherId</td>
-                            <td>@teacher.Name</td>
-                            <td>@teacher.Address</td>
+                            <td>@courses.CourseId</td>
+                            <td>@courses.Name</td>
+                            <td>@courses.CourseId</td>
                         </tr>
                     }
                 </tbody>
