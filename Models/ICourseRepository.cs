@@ -9,7 +9,8 @@ namespace UniversityManagementSystem.Models
     {
         Course GetCourse(int Id);
         IEnumerable<Course> GetAllCourses();
-        IEnumerable<Course> SearchCourse(string search);
+        IEnumerable<Course> SearchByName(string search);
+        IEnumerable<Course> SearchByCredit(string search);
         Course AddCourse(Course course);
     }
 }

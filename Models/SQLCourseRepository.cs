@@ -31,9 +31,15 @@ namespace UniversityManagementSystem.Models
             return _context.Courses.Find(Id);
         }
 
-        public IEnumerable<Course> SearchCourse(string search)
+        public IEnumerable<Course> SearchByName(string search)
         {
            return _context.Courses.Where(x => x.Name.Contains(search)).ToList();
+        }
+
+        public IEnumerable<Course> SearchByCredit(string search)
+        {
+            double credit = Convert.ToDouble(search);
+            return _context.Courses.Where(x => x.Credit == credit).ToList();
         }
     }
 }

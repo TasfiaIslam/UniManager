@@ -28,16 +28,27 @@ namespace UniversityManagementSystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string search)
+        public IActionResult Index(string searchName, string searchCredit)
         {
-            if (!String.IsNullOrEmpty(search))
-            {
-                var foundCourses = _courseRepository.SearchCourse(search);
-                var countFoundCourses = foundCourses.Count();
-                ViewBag.Total = countFoundCourses;
-                return View(foundCourses);
-            }
             var model = _courseRepository.GetAllCourses();
+
+            if (!String.IsNullOrEmpty(searchName))
+            {
+                 model = _courseRepository.SearchByName(searchName);
+                //var countFoundCourses = foundCourses.Count();
+                //ViewBag.Total = countFoundCourses;
+                return View(model);
+            }
+
+            if (!String.IsNullOrEmpty(searchCredit))
+            {
+                model = _courseRepository.SearchByCredit(searchCredit);
+                //var countFoundCourses = foundCourses.Count();
+                //ViewBag.Total = countFoundCourses;
+                return View(model);
+            }
+
+            
 
             var count = _courseRepository.GetAllCourses().Count();
             ViewBag.Total = count;
