@@ -136,7 +136,6 @@ C:\Tasfia\Github Projects\University Management System\UniversityManagementSyste
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\UniversityManagementSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Department\Create.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Department\Index.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Course\Create.cshtml.g.cs
@@ -160,3 +159,15 @@ C:\Tasfia\Github Projects\University Management System\UniversityManagementSyste
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Student\Delete.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\Delete.cshtml.g.cs
 C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\Razor\Views\Course\GroupByDepartment.cshtml.g.cs
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Debug.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\X.PagedList.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\UniversityManagementSystem.MvcApplicationPartsAssemblyInfo.cs
+C:\Tasfia\Github Projects\University Management System\UniversityManagementSystem\obj\Debug\netcoreapp3.1\UniversityManagementSystem.MvcApplicationPartsAssemblyInfo.cache

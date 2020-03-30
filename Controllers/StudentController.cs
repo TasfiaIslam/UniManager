@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using UniversityManagementSystem.Models;
 using UniversityManagementSystem.ViewModels;
+using X.PagedList;
 
 namespace UniversityManagementSystem.Controllers
 {
@@ -29,7 +30,7 @@ namespace UniversityManagementSystem.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
             var model = _studentRepository.GetAllStudents();
 
@@ -37,28 +38,27 @@ namespace UniversityManagementSystem.Controllers
             ViewBag.Total = count;
 
             
-            return View(model);
+            return View(model.ToPagedList(page ?? 1, 3));
         }
 
         [HttpPost]
-        public IActionResult Index(string search)
+        public IActionResult Index(string search, int? page)
         {
             if (!String.IsNullOrEmpty(search))
             {
                 var foundStudents = _studentRepository.SearchStudents(search);
                 var countFoundStudents = foundStudents.Count();
                 ViewBag.Total = countFoundStudents;
-                return View(foundStudents);
+                return View(foundStudents.ToPagedList(page ?? 1, 3));
             }
 
-            var result = _studentRepository.GetAllStudents().OrderBy(s => s.Name);
-
             var model = _studentRepository.GetAllStudents();
-            
+
+            //Show Total Students
             var count = _studentRepository.GetAllStudents().Count();
             ViewBag.Total = count;
 
-            return View(model);
+            return View(model.ToPagedList(page ?? 1, 3));
         }
 
         [HttpGet]
@@ -132,17 +132,17 @@ namespace UniversityManagementSystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult OrderStudentsByName()
+        public IActionResult OrderStudentsByName(int? page)
         {
             var result = _studentRepository.GetAllStudents().OrderBy(s => s.Name);
-            return View(result);
+            return View(result.ToPagedList(page ?? 1, 3));
         }
 
         [HttpPost]
-        public IActionResult GroupByDepartment()
+        public IActionResult GroupByDepartment(int? page)
         {
             var studentGroups = _studentRepository.GetAllStudents().GroupBy(s => s.DeptId);
-            return View(studentGroups);
+            return View(studentGroups.ToPagedList(page ?? 1, 3));
         }
 
         public IActionResult Details(int id)

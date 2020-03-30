@@ -46,9 +46,7 @@ namespace UniversityManagementSystem.Controllers
                 //var countFoundCourses = foundCourses.Count();
                 //ViewBag.Total = countFoundCourses;
                 return View(model);
-            }
-
-            
+            }           
 
             var count = _courseRepository.GetAllCourses().Count();
             ViewBag.Total = count;

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Student>
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@model IPagedList<Student>
 
 @{
 
@@ -69,6 +71,7 @@
                 }
             </tbody>
         </table>
+        Pages: @Html.PagedListPager(Model , page => Url.Action("Index" , new {page}))
     </div>
 </body>
 </html>
